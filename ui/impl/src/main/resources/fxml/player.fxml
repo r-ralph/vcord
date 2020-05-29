@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+<VBox alignment="TOP_CENTER" fillWidth="false" maxWidth="76.0" minWidth="76.0" prefHeight="300.0" prefWidth="76.0"
+      spacing="8.0" style="-fx-border-color: gray;" xmlns="http://javafx.com/javafx/10.0.2-internal"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ms.ralph.vcord.gui.controller.PlayerViewController">
+    <padding>
+        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+    </padding>
+    <Slider fx:id="volumeSlider" majorTickUnit="0.5" max="2.0" minHeight="200.0" minorTickCount="5"
+            orientation="VERTICAL" showTickLabels="true" showTickMarks="true">
+        <VBox.margin>
+            <Insets left="23.0"/>
+        </VBox.margin>
+    </Slider>
+    <StackPane fx:id="playerIconContainer" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0"
+               prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: gray; -fx-border-radius: 18;">
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+        <VBox.margin>
+            <Insets top="8.0"/>
+        </VBox.margin>
+        <ImageView fx:id="playerIcon" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true"/>
+        <StackPane fx:id="indicator">
+            <Circle fill="#00000000" radius="18.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4"/>
+            <Circle fill="#00000000" radius="18.0" stroke="#43b581" strokeType="INSIDE" strokeWidth="3"/>
+        </StackPane>
+        <StackPane fx:id="addPlayerOverlay" StackPane.alignment="CENTER">
+            <Line endX="12.0" stroke="GREY" strokeWidth="2.0"/>
+            <Line endY="12.0" stroke="GREY" strokeWidth="2.0"/>
+        </StackPane>
+    </StackPane>
+    <Text fx:id="playerNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="あいうえおかき"/>
+</VBox>
