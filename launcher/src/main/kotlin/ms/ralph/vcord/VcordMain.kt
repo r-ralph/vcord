@@ -4,8 +4,8 @@ import com.charleskorn.kaml.Yaml
 import com.charleskorn.kaml.YamlConfiguration
 import ms.ralph.vcord.core.manager.VcordManager
 import ms.ralph.vcord.core.model.AudioOutputDeviceId
-import ms.ralph.vcord.core.model.MidiInputDeviceId
 import ms.ralph.vcord.core.model.BotStatus
+import ms.ralph.vcord.core.model.MidiInputDeviceId
 import ms.ralph.vcord.gui.VcordWindow
 import ms.ralph.vcord.integration.audio.VcordAudioClient
 import ms.ralph.vcord.integration.discord.VcordDiscordClient
@@ -13,6 +13,7 @@ import ms.ralph.vcord.integration.discord.VcordDiscordClientFactory
 import ms.ralph.vcord.integration.midi.VcordMidiClient
 import org.slf4j.LoggerFactory
 import java.io.File
+import java.io.FileNotFoundException
 import java.util.ServiceLoader
 import java.util.concurrent.CountDownLatch
 import kotlin.system.exitProcess
@@ -40,6 +41,11 @@ object VcordMain {
 
         val appConfig = try {
             yaml.parse(AppConfig.serializer(), configFile.readText(Charsets.UTF_8))
+        } catch (e: FileNotFoundException) {
+            logger.error("Configuration file not found.")
+            configFile.createNewFile()
+            logger.error("Empty file created. Fill this file and re-run.")
+            exitProcess(-1)
         } catch (e: Exception) {
             logger.error("Failed to load configuration.", e)
             exitProcess(-1)
