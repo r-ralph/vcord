@@ -20,3 +20,8 @@ tasks.withType(Jar::class.java) {
         attributes["Main-Class"] = "ms.ralph.vcord.VcordMain"
     }
 }
+
+application {
+    @Suppress("UnstableApiUsage")
+    mainClass.set("ms.ralph.vcord.VcordMain")
+}
