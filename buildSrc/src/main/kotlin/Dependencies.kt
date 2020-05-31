@@ -33,6 +33,7 @@ object Dependencies {
 
     object Versions {
         const val JavaFxPlugin = "0.0.8"
+        const val ShadowPlugin = "5.2.0"
         const val DependencyPlantUmlExporter = "1.0.0"
 
         const val Kotlin = "1.3.72"

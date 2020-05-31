@@ -22,6 +22,5 @@ tasks.withType(Jar::class.java) {
 }
 
 application {
-    @Suppress("UnstableApiUsage")
-    mainClass.set("ms.ralph.vcord.VcordMain")
+    mainClassName = "ms.ralph.vcord.VcordMain"
 }

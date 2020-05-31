@@ -1,6 +1,7 @@
 plugins {
     application
     kotlin("jvm")
+    id("com.github.johnrengelman.shadow") version Dependencies.Versions.ShadowPlugin
 }
 
 group = "${ModuleConfig.GroupNameBase}.launcher"
@@ -22,6 +23,5 @@ tasks.withType(Jar::class.java) {
 }
 
 application {
-    @Suppress("UnstableApiUsage")
-    mainClass.set("ms.ralph.vcord.VcordMain")
+    mainClassName = "ms.ralph.vcord.VcordMain"
 }
